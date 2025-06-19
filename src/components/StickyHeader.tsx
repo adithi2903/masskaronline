@@ -9,7 +9,6 @@ type StickyHeaderProps = {
 };
 
 export const StickyHeader: React.FC<StickyHeaderProps> = ({
-  onExportClick,
   cartCount,
 }) => {
   const [isAuthFormOpen, setAuthFormOpen] = useState(false);

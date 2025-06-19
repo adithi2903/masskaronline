@@ -139,3 +139,21 @@ body.modal-open {
   border-radius: 4px;
   border-color: #3A3A3A;
 }
+select {
+  box-sizing: border-box;
+  appearance: none; 
+  -webkit-appearance: none; /* for Safari */
+  -moz-appearance: none; /* for Firefox */
+  border-radius: 5px;
+  border: 1px solid #ccc; 
+  background-color: white;
+  color: black; 
+  padding: 0.3em 0.6em; 
+  cursor: pointer;
+  text-align: center; 
+  background-image: url('data:image/svg+xml;utf8,<svg fill="black" height="10" viewBox="0 0 10 10" width="10" xmlns="http://www.w3.org/2000/svg"><polygon points="0,0 10,0 5,7"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 0.5em top 50%;
+  background-size: 0.65em auto;
+}
+

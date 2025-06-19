@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Modal, Button, Form } from "react-bootstrap";
+import { Modal, Form } from "react-bootstrap";
 
 
 // --- Types ---
@@ -465,7 +465,9 @@ const products: Product[] = [
 const ProductGrid: React.FC<ProductGridProps> = ({ setCartItems, setCartCount }) => {
   const [selectedFish, setSelectedFish] = useState<Product | null>(null);
   const [showModal, setShowModal] = useState(false);
-  const [selectedAddon, setSelectedAddon] = useState<string>("");
+  const [_selectedAddon, setSelectedAddon] = useState<string>("");
+
+
   
   // Track quantity per product by id
 
@@ -579,7 +581,7 @@ if (viewParam === "offers") {
           justifyContent: "center",
         }}
       >
-        {products.reduce<React.ReactNode[]>((acc, product, index) => {
+        {products.reduce<React.ReactNode[]>((acc, product) => {
   acc.push(
     <div
       key={product.id}
