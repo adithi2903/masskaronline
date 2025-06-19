@@ -1,0 +1,412 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  width: 100%;
+}
+
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+.modal-open {
+  overflow: hidden !important;
+}
+
+.modal-open {
+  overflow: hidden !important;
+}
+
+
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  width: 100%;
+}
+
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+.modal-open {
+  overflow: hidden !important;
+}
+
+/* React-Bootstrap modal uses these classes for animation */
+.modal.fade .modal-dialog {
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+  transform: translateY(100px);
+  opacity: 0;
+}
+
+.modal.fade.show .modal-dialog {
+  transform: translateY(0);
+  opacity: 1;
+}
+.custom-modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+.modal-backdrop {
+  transition: background-color 0.3s ease;
+}
+/* Force override Bootstrap's backdrop background */
+.modal-backdrop.show {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  z-index: 1040 !important;
+}
+
+.floating-wpp .input-message {
+  background-color: white !important;
+  color: black !important;
+  border: 1px solid #ccc !important;
+}
+
+.floating-wpp .popup-message {
+  color: black !important;
+}
+
+/* Ensure inherited dark mode doesn't affect plugin */
+.floating-wpp * {
+  color-scheme: light !important;
+}
+
+#WAButton.floating-wpp .header-title {
+  color: white !important;
+  font-family: 'Arial', sans-serif !important;
+}
+
+#WAButton.floating-wpp .popup-message {
+  color: black !important;
+  font-family: 'Courier New', monospace !important;
+}
+
+/* Container for the entire popup */
+.auth-form-container {
+  width: 700px; /* Wider popup */
+  background: #fdfcfd; /* light greenish background */
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(5, 5, 5, 0.3);
+  padding: 30px;
+  font-family: Arial, sans-serif;
+  color: #252525; /* dark green text */
+}
+
+/* Wrapper to place sign in and sign up side by side */
+.auth-forms-wrapper {
+  display: flex;
+  gap: 40px;
+  justify-content: space-between;
+}
+
+/* Each form section */
+.auth-form-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Form title */
+.form-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #3A3A3A; /* green underline */
+  padding-bottom: 8px;
+}
+
+/* Inputs */
+.input-field {
+  padding: 10px 12px;
+  margin-bottom: 15px;
+  border: 2px solid #3A3A3A;
+  border-radius: 6px;
+  font-size: 1rem;
+  color: #222222;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.input-field:focus {
+  border-color: #3c3c3c;
+  background-color: #eaffc8;
+}
+
+/* Buttons */
+.btn {
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+/* Primary green button */
+.btn-primary {
+  background-color: #3A3A3A;
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: #515150;
+}
+
+/* Secondary gray button */
+.btn-secondary {
+  background-color: #d4d4d4;
+  color: #333;
+  margin-left: 10px;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: #b8b8b8;
+}
+
+/* Warning (yellow) button */
+.btn-warning {
+  background-color: #cccccc;
+  color: #3b3b00;
+}
+
+.btn-warning:hover:not(:disabled) {
+  background-color: #d2d2d1;
+}
+
+/* Disabled button */
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Footer for login buttons */
+.form-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* Forgot password link styled as button */
+.btn-link {
+  background: none;
+  border: none;
+  color: #1f1f1e;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0;
+}
+
+/* Ajax message */
+.ajax-msg {
+  margin-top: 10px;
+  padding: 12px;
+  background-color: #bbbbbb;
+  border: 1px solid #3A3A3A;
+  border-radius: 6px;
+  color: #252525;
+  font-weight: 600;
+}
+.auth-form-section {
+  background: transparent !important;
+  box-shadow: none !important;
+  position: relative; /* make sure positioning is default */
+  z-index: 1;
+}
+/* Override modal/dialog containers */
+.modal-dialog, 
+.auth-form {
+  background: transparent !important;
+  box-shadow: none !important;
+  width: auto !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+}
+/* Target the outer wrapper directly, assuming it has no class */
+div[style*="background-color: white"] {
+  background-color: transparent !important;
+  width: auto !important;
+  padding: 0 !important;
+}
+.input-field {
+  background-color: white !important;
+  color: #2e2f2e;
+  transition: background-color 0.3s ease;
+}
+
+.input-field:hover {
+  background-color: #dbdbdb !important; /* light green on hover */
+}
+
+.input-field:focus {
+  background-color: white !important;
+  border-color: #6a6a6a;
+  outline: none;
+}

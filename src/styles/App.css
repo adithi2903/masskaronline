@@ -1,0 +1,141 @@
+#root > main {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.modal-dialog {
+  margin: auto !important;           
+  position: fixed !important;       
+  top: 50% !important;              
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important; 
+  max-width: 600px;                  
+}
+.modal-content {
+  background-color: #fff !important;  
+  opacity: 1 !important;              
+  box-shadow: none !important;        
+}
+.modal-backdrop {
+  background-color: #fff !important;  /* fully white overlay */
+}
+.custom-modal .modal-dialog {
+  max-width: 400px;  /* narrower width */
+  height: auto;
+  max-height: 600px; /* taller modal */
+}
+
+.custom-modal .modal-content {
+  height: 100%;
+}
+.custom-modal .modal-dialog {
+  max-width: 600px; /* narrower width */
+  width: 90%;
+}
+
+.custom-modal .modal-content {
+  background-color: white;
+  border-radius: 3px;
+  max-height: 90vh; /* taller height to fit more */
+  overflow-y: auto; /* scroll inside modal if needed */
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  height: 100%;
+  background-color: #f9f9f9;
+}
+body.modal-open {
+  overflow: hidden;  /* lock scroll */
+}
+.custom-modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+/* In your global CSS (e.g. App.css) or a CSS module */
+.floating-wpp-button {
+  width: 70px !important;
+  height: 70px !important;
+}
+
+.floating-wpp-button img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.floating-wpp .input-message,
+.floating-wpp input.input-message,
+.floating-wpp textarea.input-message {
+  background-color: white !important;
+  color: black !important;
+  border: 1px solid #ccc !important;
+}
+
+.floating-wpp .input-message::placeholder,
+.floating-wpp input.input-message::placeholder,
+.floating-wpp textarea.input-message::placeholder {
+  color: #444 !important;
+}
+.floating-wpp .popup-message {
+  color: black !important;
+}
+.floating-wpp * {
+  color: black !important;
+}
+.floating-wpp .header-title {
+  color: white !important;
+}
+
+.floating-wpp .popup-message {
+  color: black !important;
+}
+.white-input {
+  background-color: white;
+  color: black; /* to keep text visible */
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 4px;
+  border-color: #3A3A3A;
+}
