@@ -1,4 +1,4 @@
-import React, { useState, useEffect, type KeyboardEvent } from "react";
+import React, { useState, type KeyboardEvent } from "react";
 
 type AuthFormProps = {
   onLoginSuccess: () => void;
