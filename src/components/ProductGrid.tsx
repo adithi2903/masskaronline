@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Modal, Form } from "react-bootstrap";
+import AuthForm from "./AuthForm"; 
 
 
 // --- Types ---
@@ -8,13 +9,7 @@ interface Addon {
   name: string;
 }
 
-interface CartItem {
-  productId: number;
-  name: string;
-  quantity: number;
-  addon: string;
-  totalAmount: number;
-}
+import type { CartItem } from "./types";
 
 interface ProductGridProps {
   cartItems: CartItem[];
@@ -34,18 +29,6 @@ interface Product {
   description: string;
   addons?: Addon[];
 }
-
-// --- Product Data ---
-// const cleaningAddons: Addon[] = [
-//   { id: 13, name: "Cleaning Only" },
-//   { id: 14, name: "Clean, slice Cutting" },
-//   { id: 15, name: "Fillet" },
-//   { id: 16, name: "Skin Out & Slice Cutting" },
-//   { id: 18, name: "Clean & Cube Cutting" },
-//   { id: 45, name: "Skin out & cube cutting" },
-//   { id: 21, name: "No Cleaning" },
-//   { id: 59, name: "Butterfly Cutting" },
-// ];
 const searchParams = new URLSearchParams(window.location.search);
 const viewParam = searchParams.get("view");
 
@@ -442,22 +425,22 @@ const products: Product[] = [
       { id: 36, name: "Medium Cutting" }
     ]
   },
-  {
-    id: 206,
-    name: "Durduman (Karaari)",
-    arabicName: "دردمان",
-    englishName: "Durduman (Karaari)",
-    image: "uploads/images/items/Durdman%20(Karaari).jpg",
-    price: 11.00,
-    minWeight: "500gm",
-    description: ``,
-    addons: [
-      { id: 13, name: "Cleaning Only" },
-      { id: 14, name: "Clean, slice Cutting" },
-      { id: 21, name: "No Cleaning" },
-      { id: 46, name: "Cleaning And Remove Head" }
-    ]
-  },                                  
+  // {
+  //   id: 206,
+  //   name: "Durduman (Karaari)",
+  //   arabicName: "دردمان",
+  //   englishName: "Durduman (Karaari)",
+  //   image: "uploads/images/items/Durdman%20(Karaari).jpg",
+  //   price: 11.00,
+  //   minWeight: "500gm",
+  //   description: ``,
+  //   addons: [
+  //     { id: 13, name: "Cleaning Only" },
+  //     { id: 14, name: "Clean, slice Cutting" },
+  //     { id: 21, name: "No Cleaning" },
+  //     { id: 46, name: "Cleaning And Remove Head" }
+  //   ]
+  // },                                  
 ];
 
 // --- Main Component ---
@@ -466,6 +449,12 @@ const ProductGrid: React.FC<ProductGridProps> = ({ setCartItems, setCartCount })
   const [selectedFish, setSelectedFish] = useState<Product | null>(null);
   const [showModal, setShowModal] = useState(false);
   const [_selectedAddon, setSelectedAddon] = useState<string>("");
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    localStorage.getItem("isLoggedIn") === "true"
+  );
+  
+  const [showAuthForm, setShowAuthForm] = useState(false); 
+  
 
 
   
@@ -522,14 +511,23 @@ const incrementQuantity = (productId: number) => {
   const handleAddToCart = (product: Product) => {
     const quantity = quantities[product.id] || 0;
     const addon = selectedAddons[product.id] || "";
+    const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
   
     if (!addon || addon.trim() === "") {
+      console.warn("⛔ No addon selected for product", product.name);
       alert("Please select an add-on.");
       return;
     }
   
     if (quantity <= 0) {
+      console.warn("⛔ Quantity is zero for product", product.name);
       alert("Please select a valid quantity.");
+      return;
+    }
+  
+    if (!isLoggedIn) {
+      console.warn("⛔ User not logged in");
+      setShowAuthForm(true);
       return;
     }
   
@@ -542,14 +540,27 @@ const incrementQuantity = (productId: number) => {
       totalAmount: parseFloat((product.price * quantity).toFixed(2)),
     };
   
-    setCartItems(prev => [...prev, cartItem]);
-    setCartCount(prev => prev + 1);
+    console.log("✅ Adding to cart:", cartItem);    
+    
+    setCartItems((prev) => [...prev, cartItem]);
+    setCartCount((prev) => prev + 1);
     alert("Item added to cart!");
   
-    // 🧼 Reset fields for this product
-    setSelectedAddons(prev => ({ ...prev, [product.id]: "" }));
-    setQuantities(prev => ({ ...prev, [product.id]: 0 }));
+    // Clear fields for this product
+    setSelectedAddons((prev) => ({ ...prev, [product.id]: "" }));
+    setQuantities((prev) => ({ ...prev, [product.id]: 0 }));
   };
+  
+  const handleLoginSuccess = () => {
+  localStorage.setItem("isLoggedIn", "true");
+  setIsLoggedIn(true);
+  setShowAuthForm(false);
+};
+
+  const handleAuthClose = () => {
+    setShowAuthForm(false); // <-- Close the login modal
+  };
+  
   
   
   // If "offers" is in the URL, return just the layout without any products
@@ -564,21 +575,24 @@ if (viewParam === "offers") {
           justifyContent: "center",
         }}
       >
-        {/* No products displayed intentionally */}
       </div>
     </div>
   );
 }
-  
+ 
+useEffect(() => {
+  console.log("ProductGrid has setCartItems:", setCartItems);
+}, []);
 
   return (
-    <div style={{ padding: "2rem", backgroundColor: "#0e0e0e" }}>
+    <div style={{ padding: "2rem", backgroundColor: "white", }}>
       <div
         style={{
           display: "flex",
           flexWrap: "wrap",
-          gap: "20px",
-          justifyContent: "center",
+          gap: "32px",
+          justifyContent: "flex-start"
+
         }}
       >
         {products.reduce<React.ReactNode[]>((acc, product) => {
@@ -587,8 +601,8 @@ if (viewParam === "offers") {
       key={product.id}
       style={{
         position: "relative",
-        flex: "1 0 21%",    // 4 items per row (21% each + gaps)
-        maxWidth: "21%",
+        flex: "1 0 22%",
+        maxWidth: "71%",
         minWidth: "250px",
         backgroundColor: "#fff",
         borderRadius: "20px",
@@ -767,7 +781,7 @@ if (viewParam === "offers") {
       </div>
 
       <button
-      disabled={!selectedAddons[product.id]}
+      // disabled={!selectedAddons[product.id]}
       onClick={() => handleAddToCart(product)}
   style={{
     backgroundColor: "#3A3A3A",
@@ -919,7 +933,7 @@ if (viewParam === "offers") {
       <Modal.Footer
   style={{
     borderTop: 0,
-    padding: "0 0.5rem 1rem 10.5rem", // top: 0, bottom padding preserved
+    padding: "0 0.5rem 1rem 10.5rem", 
     width: "100%",
   }}
 >
@@ -964,6 +978,14 @@ if (viewParam === "offers") {
     </>
   )}
 </Modal>
+{/* Auth Modal */}
+{showAuthForm && (
+  <div className="modal-overlay" onClick={handleAuthClose}>
+    <div className="modal-content" onClick={e => e.stopPropagation()}>
+      <AuthForm onLoginSuccess={handleLoginSuccess} />
+    </div>
+  </div>
+)}
 
 
     </div>

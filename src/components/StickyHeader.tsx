@@ -49,7 +49,7 @@ export const StickyHeader: React.FC<StickyHeaderProps> = ({
           position: "sticky",
           top: 0,
           zIndex: 999,
-          backgroundColor: "transparent",
+          backgroundColor: "black",
           padding: "10px",
           width: "100%",
           boxSizing: "border-box",
@@ -71,7 +71,7 @@ export const StickyHeader: React.FC<StickyHeaderProps> = ({
               key={index}
               href={item.path}
               style={{
-                color: "#f9f9f9",
+                color: "white",
                 fontSize: "13px",
                 fontFamily: "'Open Sans', sans-serif",
                 textDecoration: "none",

@@ -16,7 +16,7 @@ const BannerSlider: React.FC = () => {
       </div>
 
       <div className={`banner-text ${animationDone ? 'show' : ''}`}>
-        <h1 style={{ color: "#EEEEEE" }}>ORDER NOW</h1>
+        <h1 style={{ color: "black" }}>ORDER NOW</h1>
       </div>
     </div>
   );

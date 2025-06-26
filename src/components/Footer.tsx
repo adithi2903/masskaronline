@@ -2,11 +2,11 @@ import React from "react";
 
 const Footer: React.FC = () => {
     return (
-        <footer style={{ backgroundColor: "#f1f1f124", marginBottom: "0px" }}>
+        <footer style={{ backgroundColor: "white", marginBottom: "0px" }}>
           {/* Top bar: Masskar + Connect with us */}
           <div
             style={{
-              backgroundColor: "#212121",
+              backgroundColor: "white",
               width:"100%",
               margin: "0",
               display: "flex",
@@ -16,13 +16,13 @@ const Footer: React.FC = () => {
               paddingLeft: "130px",
               flexWrap: "wrap",
             //   borderBottom: "1px solid #ddd",
-              color: "#fff",
+              color: "black",
             }}
           >
             <div>
               <h2
                 style={{
-                  color: "#909191",
+                  color: "black",
                   fontSize: "32px",
                   fontFamily:"monospace",
                   margin: "0",
@@ -72,17 +72,17 @@ const Footer: React.FC = () => {
         width: "36px",
         height: "36px",
         borderRadius: "50%",
-        backgroundColor: "rgba(255, 255, 255, 0.1)",
+        backgroundColor: "black",
         transition: "color 0.3s, background-color 0.3s",
         textDecoration: "none",
       }}
       onMouseEnter={(e) => {
         e.currentTarget.style.color = hoverColor;
-        e.currentTarget.style.backgroundColor = `${hoverColor}33`; // 20% opacity background
+        e.currentTarget.style.backgroundColor = `${hoverColor}33`; 
       }}
       onMouseLeave={(e) => {
         e.currentTarget.style.color = "#fff";
-        e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.1)";
+        e.currentTarget.style.backgroundColor = "black";
       }}
     >
       <i className={`fa fa-${name}`} aria-hidden="true"></i>
@@ -99,7 +99,8 @@ const Footer: React.FC = () => {
       <div
   style={{
     width: "100%",
-    backgroundColor: "#0e0e0e",
+    backgroundColor: "white",
+    color:"black",
     borderBottom: "1px solid #3e3e3e",
     padding: "40px 80px",
     display: "flex",
@@ -149,14 +150,14 @@ const Footer: React.FC = () => {
     },
   ].map((section, index) => (
     <div key={index} style={{ flex: "1 1 160px", minWidth: "150px" }}>
-      <h3 style={{ color: "#ffffff", marginBottom: "10px" }}>{section.title}</h3>
+      <h3 style={{ color: "black", marginBottom: "10px" }}>{section.title}</h3>
       <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
         {section.links.map((link, idx) => (
           <li key={idx} style={{ marginBottom: "8px" }}>
             <a
               href={link.href}
               style={{
-                color: "#999999",
+                color: "black",
                 textDecoration: "none",
                 fontSize: "14px",
               }}
@@ -171,7 +172,7 @@ const Footer: React.FC = () => {
 
   {/* Contact column */}
   <div style={{ flex: "1 1 180px", minWidth: "160px", paddingTop: "5px" }}>
-  <h3 style={{ color: "#ffffff", marginBottom: "12px", fontSize: "16px" }}>CONTACT</h3>
+  <h3 style={{ color: "black", marginBottom: "12px", fontSize: "16px" }}>CONTACT</h3>
   <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
     <li style={{ marginBottom: "10px" }}>
       <a
@@ -179,7 +180,7 @@ const Footer: React.FC = () => {
         style={{
           display: "inline-flex",
           alignItems: "center",
-          color: "#999999",
+          color: "black",
           textDecoration: "none",
           fontSize: "14px",
         }}
@@ -194,7 +195,7 @@ const Footer: React.FC = () => {
         style={{
           display: "inline-flex",
           alignItems: "center",
-          color: "#999999",
+          color: "black",
           textDecoration: "none",
           fontSize: "14px",
         }}
@@ -216,22 +217,22 @@ const Footer: React.FC = () => {
           height:"30px",
           padding: "0",
           textAlign: "center",
-          backgroundColor:"#212121",
+          backgroundColor:"white",
           fontSize: "14px",
-          color: "#666",
+          color: "black",
         }}
       >
-        <p style={{ margin: 0, padding: 0, color:"#999999" }}>
+        <p style={{ margin: 0, padding: 0, color:"black" }}>
           © 2021 Masskar. All rights reserved | Developed by{" "}
           <a
             href="https://etuwa.in/"
-            style={{ textDecoration: "none", color: "white" }}
+            style={{ textDecoration: "none", color: "black" }}
           >
             Team{" "}
             <img
               src="qfreshstyles/images/etuwalogobluenew.png"
               alt="etuwa logo"
-              style={{ height: 10, width: 10, verticalAlign: "middle" }}
+              style={{ height: 10, width: 10, verticalAlign: "middle", color:"black" }}
             />
             etuwa
           </a>

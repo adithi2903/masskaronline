@@ -27,7 +27,7 @@ const TopBrands: React.FC = () => {
 
       <div
         className="top-brands"
-        style={{ paddingRight: "26px", backgroundColor: "#0e0e0e", padding: "10px" }}
+        style={{ paddingRight: "26px", backgroundColor: "white", padding: "10px" }}
       >
         <center style={{ marginLeft: "25px", marginTop: "6px" }}>
         <a className="btn btn-primary confirmCart" style={buttonStyle} href="/?view=all">ALL</a>

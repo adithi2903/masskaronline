@@ -8,4 +8,11 @@ export interface Product {
     minWeight: string;
     description: string;
   }
-  
+  export interface CartItem {
+    productId: number;
+    name: string;
+    quantity: number;
+    addon: string;
+    totalAmount: number;
+    pricePerKg: number;
+  }

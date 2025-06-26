@@ -3,7 +3,7 @@
   height: 85vh;
   /* overflow: hidden;  */
   z-index: 0;
-  background-color: #0e0e0e;
+  background-color: white;
 }
 
 .image-wrapper {
@@ -16,7 +16,7 @@
 }
 
 .banner-image {
-  background-image: url('/uploads/images/banner/new_banner1.png');
+  background-image: url('/uploads/images/banner/new.png');
   background-size: cover;
   background-position: center;
   width: 100%;
@@ -39,7 +39,7 @@
   top: 75%;
   width: 100%;
   text-align: center;
-  background-color: #0e0e0e;
+  background-color: white;
   color: white;
   border: 2px;
   opacity: 0;
