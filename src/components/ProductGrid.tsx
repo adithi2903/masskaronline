@@ -449,7 +449,7 @@ const ProductGrid: React.FC<ProductGridProps> = ({ setCartItems, setCartCount })
   const [selectedFish, setSelectedFish] = useState<Product | null>(null);
   const [showModal, setShowModal] = useState(false);
   const [_selectedAddon, setSelectedAddon] = useState<string>("");
-  const [isLoggedIn, setIsLoggedIn] = useState(
+  const [, setIsLoggedIn] = useState(
     localStorage.getItem("isLoggedIn") === "true"
   );
   

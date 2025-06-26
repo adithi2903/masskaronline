@@ -4,7 +4,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import "font-awesome/css/font-awesome.min.css";
 
 import React, { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+// import { Routes, Route } from "react-router-dom";
 
 import GlobalAssets from "./components/GlobalAssets";
 import { TopHeader } from "./components/TopHeader";
