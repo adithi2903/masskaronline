@@ -30,16 +30,19 @@ const AuthForm: React.FC<AuthFormProps> = ({ onLoginSuccess }) => {
       handleLoginSubmit();
     }
   };
-
+  
   const handleLoginSubmit = async () => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-      localStorage.setItem("isLoggedIn", "true"); // ✅ Store login status
-      onLoginSuccess(); // Continue with app logic
+      localStorage.setItem("isLoggedIn", "true");
+localStorage.setItem("username", loginUsername.toLowerCase()); // 👈 convert on store also
+
+      onLoginSuccess();
     }, 1000);
   };
-  localStorage.setItem("isLoggedIn", "true");
+  
+
   
 
   const handleForgotSubmit = async () => {

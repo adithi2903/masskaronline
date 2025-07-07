@@ -512,6 +512,18 @@ const incrementQuantity = (productId: number) => {
     const quantity = quantities[product.id] || 0;
     const addon = selectedAddons[product.id] || "";
     const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+    const username = localStorage.getItem("username");
+    
+    console.log("🟢 isLoggedIn:", isLoggedIn);
+    console.log("🟢 username:", username);
+    
+    if (!isLoggedIn || username?.toLowerCase() !== "adithi") {
+      alert("Please log in to add items to the cart.");
+      setShowAuthForm(true);
+      return;
+    }
+    
+
   
     if (!addon || addon.trim() === "") {
       console.warn("⛔ No addon selected for product", product.name);
@@ -980,12 +992,14 @@ useEffect(() => {
 </Modal>
 {/* Auth Modal */}
 {showAuthForm && (
-  <div className="modal-overlay" onClick={handleAuthClose}>
-    <div className="modal-content" onClick={e => e.stopPropagation()}>
-      <AuthForm onLoginSuccess={handleLoginSuccess} />
-    </div>
-  </div>
+  <AuthForm
+    onLoginSuccess={() => {
+      setShowAuthForm(false);
+      window.location.reload(); // ✅ reload ensures localStorage changes take effect in this session
+    }}
+  />
 )}
+
 
 
     </div>
