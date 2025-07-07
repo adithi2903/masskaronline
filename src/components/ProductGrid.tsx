@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Modal, Form } from "react-bootstrap";
 import AuthForm from "./AuthForm"; 
-
+import { toast } from "react-toastify";
 
 // --- Types ---
 interface Addon {
@@ -449,9 +449,9 @@ const ProductGrid: React.FC<ProductGridProps> = ({ setCartItems, setCartCount })
   const [selectedFish, setSelectedFish] = useState<Product | null>(null);
   const [showModal, setShowModal] = useState(false);
   const [_selectedAddon, setSelectedAddon] = useState<string>("");
-  const [, setIsLoggedIn] = useState(
-    localStorage.getItem("isLoggedIn") === "true"
-  );
+  // const [, setIsLoggedIn] = useState(
+  //   localStorage.getItem("isLoggedIn") === "true"
+  // );
   
   const [showAuthForm, setShowAuthForm] = useState(false); 
   
@@ -518,7 +518,7 @@ const incrementQuantity = (productId: number) => {
     console.log("🟢 username:", username);
     
     if (!isLoggedIn || username?.toLowerCase() !== "adithi") {
-      alert("Please log in to add items to the cart.");
+      toast.warn("Please log in to add items to the cart.");
       setShowAuthForm(true);
       return;
     }
@@ -527,13 +527,13 @@ const incrementQuantity = (productId: number) => {
   
     if (!addon || addon.trim() === "") {
       console.warn("⛔ No addon selected for product", product.name);
-      alert("Please select an add-on.");
+      toast.warn("Please select an add-on.");
       return;
     }
   
     if (quantity <= 0) {
       console.warn("⛔ Quantity is zero for product", product.name);
-      alert("Please select a valid quantity.");
+      toast.warn("Please select a valid quantity.");
       return;
     }
   
@@ -556,22 +556,22 @@ const incrementQuantity = (productId: number) => {
     
     setCartItems((prev) => [...prev, cartItem]);
     setCartCount((prev) => prev + 1);
-    alert("Item added to cart!");
+    // alert("Item added to cart!");
   
     // Clear fields for this product
     setSelectedAddons((prev) => ({ ...prev, [product.id]: "" }));
     setQuantities((prev) => ({ ...prev, [product.id]: 0 }));
   };
   
-  const handleLoginSuccess = () => {
-  localStorage.setItem("isLoggedIn", "true");
-  setIsLoggedIn(true);
-  setShowAuthForm(false);
-};
+//   const handleLoginSuccess = () => {
+//   localStorage.setItem("isLoggedIn", "true");
+//   setIsLoggedIn(true);
+//   setShowAuthForm(false);
+// };
 
-  const handleAuthClose = () => {
-    setShowAuthForm(false); // <-- Close the login modal
-  };
+//   const handleAuthClose = () => {
+//     setShowAuthForm(false); // <-- Close the login modal
+//   };
   
   
   

@@ -2,7 +2,8 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import "font-awesome/css/font-awesome.min.css";
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import React, { useState, useEffect } from "react";
 // import { Routes, Route } from "react-router-dom";
 
@@ -38,6 +39,18 @@ const App: React.FC = () => {
 
   return (
     <>
+    <ToastContainer
+  position="top-center"
+  autoClose={3000}
+  hideProgressBar={true}
+  newestOnTop={false}
+  closeOnClick
+  rtl={false}
+  pauseOnFocusLoss
+  draggable
+  pauseOnHover
+/>
+ 
       <GlobalAssets />
       <TopHeader />
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import type { CartItem } from "./types";
-
+import { toast } from "react-toastify";
 interface CheckoutPageProps {
   cartItems: CartItem[];
   clearCart: () => void;
@@ -70,12 +70,12 @@ const CheckoutPage: React.FC<CheckoutPageProps> = ({ cartItems, clearCart, setCa
 
   const handlePlaceOrder = () => {
     if (cartItems.length === 0) {
-      alert("Your cart is empty! Please add at least one item.");
+      toast.warn("Your cart is empty! Please add at least one item.");
       return;
     }
     
     if (!address || !phone) {
-      alert("Please enter your address and phone number.");
+      toast.warn("Please enter your address and phone number.");
       return;
     }
 
