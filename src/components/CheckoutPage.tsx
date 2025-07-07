@@ -69,6 +69,11 @@ const CheckoutPage: React.FC<CheckoutPageProps> = ({ cartItems, clearCart, setCa
   const total = subtotal + deliveryFee;
 
   const handlePlaceOrder = () => {
+    if (cartItems.length === 0) {
+      alert("Your cart is empty! Please add at least one item.");
+      return;
+    }
+    
     if (!address || !phone) {
       alert("Please enter your address and phone number.");
       return;
